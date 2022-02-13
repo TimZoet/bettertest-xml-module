@@ -68,7 +68,6 @@ namespace bt
             case compare_result_t::success: status.set_value("success"); break;
             case compare_result_t::failure: status.set_value("failure"); break;
             case compare_result_t::exception: status.set_value("exception"); break;
-            default: break;
             }
 
             // Write source location.

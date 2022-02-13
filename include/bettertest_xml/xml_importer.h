@@ -21,7 +21,7 @@ namespace bt
 
         explicit XmlImporter(std::filesystem::path directory);
 
-        virtual ~XmlImporter() = default;
+        ~XmlImporter() noexcept override = default;
 
         XmlImporter& operator=(const XmlImporter&) = delete;
 

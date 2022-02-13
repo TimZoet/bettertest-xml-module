@@ -1,13 +1,6 @@
 #include "bettertest_xml/xml_importer.h"
 
 ////////////////////////////////////////////////////////////////
-// Standard includes.
-////////////////////////////////////////////////////////////////
-
-#include <fstream>
-#include <string>
-
-////////////////////////////////////////////////////////////////
 // External includes.
 ////////////////////////////////////////////////////////////////
 
@@ -50,8 +43,8 @@ namespace bt
 
         // Read XML data from file.
         pugi::xml_document doc;
-        const auto         res = doc.load_file((path / "suite.xml").c_str());
-        if (!res) throw ImportError("Failed to open suite file");
+        if (const auto res = doc.load_file((path / "suite.xml").c_str()); !res)
+            throw ImportError("Failed to open suite file");
 
         // Read suite data.
         fromXml(doc.child("suite"), suite.getData());
