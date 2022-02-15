@@ -27,6 +27,6 @@ namespace bt
 
         XmlImporter& operator=(XmlImporter&&) = delete;
 
-        bool readSuiteFile(TestSuite& suite) override;
+        bool readSuite(TestSuite& suite) override;
     };
 }

@@ -27,9 +27,9 @@ namespace bt
 
         XmlExporter& operator=(XmlExporter&&) = delete;
 
-        void writeSuiteFile(const TestSuite& suite) override;
+        void writeSuite(const TestSuite& suite) override;
 
-        void writeUnitTestFile(const TestSuite& suite, const IUnitTest& test, const std::string& name) override;
+        void writeUnitTestResults(const TestSuite& suite, const IUnitTest& test, const std::string& name) override;
 
         [[nodiscard]] bool supportsMultithreading() const noexcept override;
     };

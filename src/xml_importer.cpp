@@ -37,7 +37,7 @@ namespace bt
 
     XmlImporter::XmlImporter(std::filesystem::path directory) : IImporter(std::move(directory)) {}
 
-    bool XmlImporter::readSuiteFile(TestSuite& suite)
+    bool XmlImporter::readSuite(TestSuite& suite)
     {
         if (!exists(path / "suite.xml")) return false;
 

@@ -84,7 +84,7 @@ namespace bt
 
     XmlExporter::~XmlExporter() noexcept = default;
 
-    void XmlExporter::writeSuiteFile(const TestSuite& suite)
+    void XmlExporter::writeSuite(const TestSuite& suite)
     {
         // Create directory if it does not exist.
         if (!exists(path)) create_directories(path);
@@ -114,7 +114,7 @@ namespace bt
         file.close();
     }
 
-    void XmlExporter::writeUnitTestFile(const TestSuite& suite, const IUnitTest& test, const std::string& name)
+    void XmlExporter::writeUnitTestResults(const TestSuite& suite, const IUnitTest& test, const std::string& name)
     {
         // Create directory if it does not exist.
         const auto testPath = this->path / name;
