@@ -43,3 +43,7 @@ install_target(
     VERSION ${BETTERTEST_VERSION}
     HEADERS "${HEADERS}"
 )
+
+# Add public definition to target so that it propagates to test applications.
+# Will result in automatic registration of the exporter/importer.
+target_compile_definitions(${NAME} PUBLIC BETTERTEST_BUILD_XML)
