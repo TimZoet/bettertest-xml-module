@@ -30,7 +30,5 @@ namespace bt
         void writeSuite(const TestSuite& suite) override;
 
         void writeUnitTestResults(const TestSuite& suite, const IUnitTest& test, const std::string& name) override;
-
-        [[nodiscard]] bool supportsMultithreading() const noexcept override;
     };
 }  // namespace bt

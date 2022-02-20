@@ -141,7 +141,4 @@ namespace bt
         doc.save(file);
         file.close();
     }
-
-    bool XmlExporter::supportsMultithreading() const noexcept { return true; }
-
 }  // namespace bt
