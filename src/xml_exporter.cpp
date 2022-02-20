@@ -24,6 +24,13 @@
 
 namespace bt
 {
+    void toXml(pugi::xml_node& node, const Version& v)
+    {
+        node.append_attribute("major").set_value(v.major);
+        node.append_attribute("minor").set_value(v.minor);
+        node.append_attribute("patch").set_value(v.patch);
+    }
+
     void toXml(pugi::xml_node& node, const TestSuite& suite)
     {
         node.append_attribute("dateCreated").set_value(suite.getData().dateCreated.c_str());
@@ -31,7 +38,8 @@ namespace bt
         node.append_attribute("name").set_value(suite.getName().c_str());
         node.append_attribute("passing").set_value(suite.getData().passing);
         node.append_attribute("runIndex").set_value(suite.getData().runIndex);
-        node.append_attribute("version").set_value(suite.getData().version.c_str());
+        auto version = node.append_child("version");
+        toXml(version, suite.getData().version);
     }
 
     void toXml(pugi::xml_node& node, const TestData& t)

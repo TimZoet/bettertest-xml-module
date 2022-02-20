@@ -17,6 +17,12 @@
 
 namespace bt
 {
+    void fromXml(const pugi::xml_node& node, Version& v)
+    {
+        v.major = node.attribute("major").as_uint();
+        v.minor = node.attribute("minor").as_uint();
+        v.patch = node.attribute("patch").as_uint();
+    }
     void fromXml(const pugi::xml_node& node, SuiteData& s)
     {
         s.dateCreated = node.attribute("dateCreated").as_string();
@@ -24,7 +30,7 @@ namespace bt
         s.name        = node.attribute("name").as_string();
         s.passing     = node.attribute("passing").as_bool();
         s.runIndex    = node.attribute("runIndex").as_ullong();
-        s.version     = node.attribute("version").as_string();
+        fromXml(node.child("version"), s.version);
     }
 
     void fromXml(const pugi::xml_node& node, TestData& t)
